@@ -547,12 +547,7 @@ static __strong NSData *CRLFCRLF;
         if ([_urlRequest SR_SSLPinnedCertificates].count) {
             [SSLOptions setValue:[NSNumber numberWithBool:NO] forKey:(__bridge id)kCFStreamSSLValidatesCertificateChain];
         }
-        
-#if DEBUG
-        [SSLOptions setValue:[NSNumber numberWithBool:NO] forKey:(__bridge id)kCFStreamSSLValidatesCertificateChain];
-        NSLog(@"SocketRocket: In debug mode.  Allowing connection to any root cert");
-#endif
-        
+                
         [_outputStream setProperty:SSLOptions
                             forKey:(__bridge id)kCFStreamPropertySSLSettings];
     }
